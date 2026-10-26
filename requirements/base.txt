@@ -1,0 +1,12 @@
+# Runtime (inference service). Kept small: no PyTorch in the serving image.
+fastapi>=0.110,<1
+uvicorn>=0.29
+python-multipart>=0.0.9
+numpy>=1.26
+Pillow>=10.3
+onnxruntime>=1.17
+sqlalchemy>=2.0
+psycopg[binary]>=3.1
+pyjwt[crypto]>=2.8
+cryptography>=42
+prometheus-client>=0.20

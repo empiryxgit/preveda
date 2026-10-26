@@ -1,0 +1,74 @@
+PROPRIETARY SOFTWARE LICENSE NOTICE
+
+PreVeda Madhu-DR
+Copyright (c) 2026 Empiryx. All rights reserved.
+
+1. OWNERSHIP
+   This software, including its source code, trained model files, model
+   weights, reference patterns, guideline templates, documentation, user
+   interface, installer and all related materials (together, the "Software"),
+   is the confidential and proprietary property of Empiryx ("Empiryx").
+   All rights, title and interest in the Software are reserved by Empiryx.
+
+2. NO LICENSE GRANTED
+   No licence or right of any kind is granted to you, expressly or by
+   implication, estoppel or otherwise, except under a separate written
+   agreement signed by Empiryx (for example an evaluation, pilot or
+   commercial licence agreement). Receiving, downloading, installing or
+   viewing the Software does not give you any licence to it.
+
+3. RESTRICTIONS
+   Unless a signed agreement with Empiryx expressly allows it, you must not:
+   (a) copy, reproduce, modify, translate or create derivative works of the
+       Software;
+   (b) distribute, sell, rent, lease, sublicense, publish, host as a service
+       for others, or otherwise make the Software available to any third
+       party;
+   (c) reverse engineer, decompile or disassemble the Software, or attempt to
+       extract its source code, model weights or training data, except where
+       applicable law forbids this restriction;
+   (d) remove or alter any copyright, confidentiality or other proprietary
+       notice;
+   (e) use the Software, its outputs or its model to train, benchmark or
+       build a competing product or model.
+
+4. CONFIDENTIALITY
+   The Software is confidential information of Empiryx. You must keep it
+   secure and must not disclose it to anyone who is not authorised in
+   writing by Empiryx.
+
+5. NOT A MEDICAL DEVICE; NO CLINICAL RELIANCE
+   The Software is an AI-assisted screening aid for use by qualified
+   clinicians. It is not a diagnosis, is not approved or cleared as a medical
+   device by any regulator, and must not be used as the sole basis for any
+   clinical decision. Suggested follow-up, management and medication text is
+   a draft for review by a qualified clinician and is not a prescription.
+   Clinical responsibility remains with the treating healthcare professional
+   and the institution.
+
+6. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF
+   ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, ACCURACY AND NON-INFRINGEMENT.
+
+7. LIMITATION OF LIABILITY
+   TO THE MAXIMUM EXTENT PERMITTED BY LAW, EMPIRYX SHALL NOT BE LIABLE FOR
+   ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR
+   FOR ANY LOSS OF DATA, PROFITS OR CLINICAL OUTCOMES, ARISING OUT OF OR IN
+   CONNECTION WITH THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+   DAMAGES.
+
+8. THIRD-PARTY COMPONENTS
+   The Software includes or depends on third-party open-source components
+   (for example FastAPI, ONNX Runtime, NumPy, Pillow, SQLAlchemy and PyTorch)
+   and pre-trained starting weights. These remain the property of their
+   respective owners and are governed by their own licences, which are not
+   changed by this notice.
+
+9. TERMINATION
+   Any permission Empiryx may give you to use the Software ends automatically
+   if you breach this notice. On request you must stop using the Software and
+   delete all copies.
+
+10. CONTACT
+    For licensing enquiries: Empiryx, https://empiryx.com

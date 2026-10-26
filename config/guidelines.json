@@ -1,0 +1,76 @@
+{
+  "_README": "Clinical knowledge used by step 6. This is NOT produced by the AI. It is a draft summary of widely used diabetic-retinopathy care principles (ICDR severity scale / ophthalmology preferred-practice style guidance). The hospital's ophthalmology lead must review, edit and approve every line against local protocols before any clinical use. No doses are given on purpose.",
+  "status": "DRAFT - not clinically approved",
+  "approved_by": "",
+  "approved_on": "",
+  "thresholds": {
+    "dr_high": 0.40,
+    "dr_review": 0.15,
+    "other_review": 0.40,
+    "_note": "dr_high = probability of DR at/above which the eye is flagged HIGH. dr_review = lower, more cautious level that flags MEDIUM. Chosen from validation/test results of the current model; re-check after every re-training."
+  },
+  "findings": {
+    "Retake": {
+      "label": "Image not gradable",
+      "followup": "Repeat retinal photography (consider pupil dilation) or arrange a dilated eye examination.",
+      "management": "No conclusion about diabetic retinopathy can be drawn from this image.",
+      "medication": "None."
+    },
+    "No DR suspected": {
+      "label": "No diabetic retinopathy suspected by AI",
+      "followup": "Routine re-screening, typically every 12 months for a person with diabetes (earlier if symptoms or poor control).",
+      "management": "Optimise blood glucose, blood pressure and lipids with the treating physician; lifestyle advice. A normal AI result does not rule out DR.",
+      "medication": "No eye-specific medication."
+    },
+    "Possible DR": {
+      "label": "Possible diabetic retinopathy (AI is uncertain)",
+      "followup": "Clinician review of the image and a dilated eye examination; early re-screen if not examined.",
+      "management": "Grade to be confirmed by a clinician. Review systemic control (glucose, blood pressure, lipids).",
+      "medication": "No eye medication should be chosen from an uncertain AI result."
+    },
+    "Suspected DR": {
+      "label": "Suspected diabetic retinopathy",
+      "followup": "Refer to an ophthalmologist for dilated examination and grading. Timing depends on the confirmed grade (see the grade table).",
+      "management": "Grade and presence of macular oedema to be confirmed by a clinician; review systemic control.",
+      "medication": "Eye-specific treatment is decided only after grading (see the grade table)."
+    },
+    "Other finding": {
+      "label": "Possible other retinal finding (e.g. drusen / macular change)",
+      "followup": "Ophthalmology evaluation.",
+      "management": "AI does not identify the specific condition.",
+      "medication": "None suggested."
+    }
+  },
+  "by_confirmed_grade": {
+    "No DR": {
+      "followup": "Re-screen in about 12 months.",
+      "management": "Systemic control of glucose, blood pressure and lipids.",
+      "medication": "No eye-specific medication."
+    },
+    "Mild NPDR": {
+      "followup": "Re-screen in about 6-12 months.",
+      "management": "Systemic control of glucose, blood pressure and lipids; patient education on symptoms.",
+      "medication": "Usually no eye-specific treatment."
+    },
+    "Moderate NPDR": {
+      "followup": "Ophthalmology review; follow-up roughly every 3-6 months (sooner if macular oedema).",
+      "management": "Intensify systemic control; look for macular oedema.",
+      "medication": "If centre-involving macular oedema is present: intravitreal anti-VEGF therapy (for example aflibercept, ranibizumab, faricimab; bevacizumab is used where cost is a constraint), or laser, at the specialist's discretion."
+    },
+    "Severe NPDR": {
+      "followup": "Prompt referral to a retina specialist (within weeks).",
+      "management": "High risk of progression to proliferative disease; intensify systemic control.",
+      "medication": "Specialist may consider panretinal laser photocoagulation and/or intravitreal anti-VEGF injections."
+    },
+    "PDR": {
+      "followup": "Urgent retina specialist referral (days).",
+      "management": "Sight-threatening; treat promptly.",
+      "medication": "Panretinal laser and/or intravitreal anti-VEGF injections; vitrectomy for vitreous haemorrhage or traction (specialist decision)."
+    },
+    "Diabetic macular oedema": {
+      "followup": "Retina specialist referral; timing by severity and vision.",
+      "management": "Confirm centre involvement with OCT if available.",
+      "medication": "Intravitreal anti-VEGF (aflibercept, ranibizumab, faricimab, or bevacizumab), corticosteroid implants or focal laser per specialist."
+    }
+  }
+}

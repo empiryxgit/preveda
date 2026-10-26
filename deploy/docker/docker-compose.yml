@@ -1,0 +1,37 @@
+# Single-container hospital node (FRD 4.1: Docker Compose stack for smaller facilities).
+services:
+  madhu-dr:
+    image: preveda/madhu-dr:1.0.0
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+      args:
+        WITH_TRAIN: "false"
+    container_name: preveda-madhu-dr
+    ports:
+      - "${PREVEDA_API_PORT:-8080}:8080"   # REST API   (docs at /docs)
+      - "${PREVEDA_WEB_PORT:-8081}:8081"   # web app
+    environment:
+      PREVEDA_HOSPITAL_NODE_ID: ${PREVEDA_HOSPITAL_NODE_ID:-NODE-DEV}
+      PREVEDA_AUTH_MODE: ${PREVEDA_AUTH_MODE:-off}
+      PREVEDA_JWT_SECRET: ${PREVEDA_JWT_SECRET:-}
+      PREVEDA_JWKS_URL: ${PREVEDA_JWKS_URL:-}
+      PREVEDA_JWT_AUDIENCE: ${PREVEDA_JWT_AUDIENCE:-}
+      PREVEDA_PATIENT_HASH_SALT: ${PREVEDA_PATIENT_HASH_SALT:-change-me-per-hospital}
+      PREVEDA_REQUIRE_SIGNATURE: ${PREVEDA_REQUIRE_SIGNATURE:-true}
+      PREVEDA_STORE_THUMBNAILS: ${PREVEDA_STORE_THUMBNAILS:-true}
+      PREVEDA_PUBLIC_API_URL: http://localhost:${PREVEDA_API_PORT:-8080}
+      PREVEDA_PATH_MAP: ${PREVEDA_PATH_MAP:-}   # e.g. C:=/host/c,D:=/host/d (set by the installer)
+      PREVEDA_DEMO_LOGIN: ${PREVEDA_DEMO_LOGIN:-true}   # dummy web login; only works while AUTH_MODE=off
+    volumes:
+      - madhu-data:/data            # results DB + audit log survive restarts
+      - ${PREVEDA_HOST_IMAGES_DIR:-./images}:/images:ro   # your retinal-image folder, read-only (appears as /images)
+      # - ./models:/models:ro       # uncomment to deploy a newer signed model without rebuilding
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+volumes:
+  madhu-data:

@@ -1,0 +1,85 @@
+{
+  "model_name": "madhu-dr",
+  "version": "1.0.0",
+  "stage": "STAGING",
+  "aggregation": "LOCAL_ONLY",
+  "hospitals_n": 1,
+  "patients_n": 208,
+  "accuracy_metrics": {
+    "auroc": 0.8019,
+    "auroc_val": 0.7951,
+    "sensitivity": 0.7059,
+    "specificity": 0.7751,
+    "threshold_review": 0.15,
+    "sensitivity_high": 0.5294,
+    "specificity_high": 0.9231,
+    "threshold_high": 0.4,
+    "f1_macro": 0.5516,
+    "accuracy": 0.7258,
+    "n_test": 186,
+    "dr_test_images": 17,
+    "fairness_gap": null
+  },
+  "created": "2026-10-20T16:24:55+00:00",
+  "architecture": "ResNet-18 (ImageNet pre-trained, fine-tuned), 4-class head, 512-d embedding output",
+  "classes": [
+    "Ungradable",
+    "Healthy",
+    "DR",
+    "Other"
+  ],
+  "input": {
+    "name": "image",
+    "shape": [
+      null,
+      3,
+      320,
+      320
+    ],
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "preprocessing": [
+    "open RGB",
+    "crop black border (max channel <= 12)",
+    "pad to square",
+    "resize 320x320 bilinear",
+    "scale to 0-1",
+    "normalise with mean/std"
+  ],
+  "low_confidence_below": 0.5,
+  "novelty": {
+    "method": "cosine distance to the predicted class centroid in model/reference_embeddings.npz",
+    "threshold_per_class": {
+      "Ungradable": 0.1256415694952011,
+      "Healthy": 0.10416427999734879,
+      "DR": 0.17782112956047058,
+      "Other": 0.286724328994751
+    }
+  },
+  "training": {
+    "images": 921,
+    "split_by": "patient",
+    "n_train": 590,
+    "n_val": 145,
+    "n_test": 186
+  },
+  "artefact": {
+    "file": "dr_model.onnx",
+    "sha256": "f6a4b4598eb36dbbeff48165bf9c486c473da2b994444fefb2f074399e5fda32",
+    "embeddings_file": "reference_embeddings.npz",
+    "path": "registry/1.0.0/dr_model.onnx"
+  },
+  "signature": {
+    "alg": "ECDSA-P256-SHA256",
+    "value": "MEUCIFCpzP1IkK3hrO19hJgB/Aj8KmdVuMMh7zVbo3r9LA69AiEAhTFr8HKCzVYYctIMOK4GtNleRDRlQdwXxwTkcuRL71I="
+  }
+}
